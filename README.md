@@ -8,7 +8,6 @@ I have done my Task-1 as an intern at AL-JUNAID TECH
 
 ✨ Key Features:
 ✅ Fully Responsive – Works seamlessly on mobile, tablet, and desktop.
-✅ Use Gradient Color to make it eye catching for the user.
 
 #Internship
 #Web Development
