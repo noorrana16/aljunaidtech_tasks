@@ -69,7 +69,7 @@
         echo "<b>DOB:</b> $DOB<br>";
         echo "<hr></div>";
 
-        //2.Variable Juggling - Swapping two numbers 
+        //2.Variable Juggling
         //swapping logic
         $num1 = 10;
         $num2 = 15;
@@ -153,7 +153,7 @@
         echo 'The Value is %= : ' . $n . "<br><hr>";
         echo "</pre></div>";
 
-        /*4. Logocal Operators if,else operator*/
+        /*4. Logocal Operators*/
         $bool1 = true;
         $bool2 = false;
         echo "<div style='text-align:center'>";
