@@ -5,26 +5,18 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Students;
 use App\Http\Controllers\DemoController;
 use Resources\views\layouts\main;
+use App\Http\Controllers\ArrayController;
 
-
-
-
-//Task-1
-Route::get('/MyInfo',[DemoController::class,'showInfo']);
-Route::get('/Swap-values',[DemoController::class, 'swapValues']);
-Route::get('/data-types', [DemoController::class, 'showdatatypes']);
-
-//Task-2
-Route::get('/Arithmetic', [DemoController::class, 'Arithmetic']);
-Route::get('/Assignment', [DemoController::class, 'Operate']);
-Route::get('/Logical', [DemoController::class, 'logical']);
-
-
-
-
-
-
-
-
-
+//Laravel:Task-2
+Route::get('/array', [ArrayController::class, 'indexedArray']);
+Route::get('/employees', [ArrayController::class, 'Employees']);
+Route::get('/books', [ArrayController::class, 'showBooks']);
+Route::get('/students', [ArrayController::class, 'Students']);
+Route::get('/fibonacci', [ArrayController::class, 'fibonacciSeries']);
+Route::post('/table', [ArrayController::class, 'generateTable']);
+Route::get('/multi-table', [ArrayController::class, 'showTable']);
+Route::post('/grade', [ArrayController::class, 'assignGrade']);
+Route::get('/grade-form', [ArrayController::class, 'showGrade']);
+Route::get('/', [ArrayController::class, 'showForm']);
+Route::post('/paragraph', [ArrayController::class, 'Paragraph']);
 
