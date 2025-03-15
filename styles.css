@@ -1,0 +1,72 @@
+/**/
+body{
+    font-family: 'Times New Roman', Times, serif;
+    justify-content: center;
+
+}
+form {
+    background-color: transparent;
+    transform: translate(+20px, -750px);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: none;
+    max-width: max-content;
+    margin: auto;
+    color: #fff;
+}
+input {
+    width: 100%;
+    padding: 20px;
+    margin: 2px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+button{
+    background-color:#02a388 ;
+    border: #02937a;
+    color: #fff;
+    font-size: 1.150rem;
+    border-radius: 5px;
+    font-weight: 600;
+    margin: 0 0 20px;
+    width: 100%;
+}
+header{
+    position: absolute;
+    width: 100%;
+    top: 1rem;
+    left: 0;
+    z-index: 2;
+}
+.navbar {
+    border-radius: 2px;
+
+}
+.navbar-nav .nav-link{
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem 2rem;
+    margin:0 0.2rem;
+}
+.navbar li a:hover {
+    color: #02a388;
+}
+
+p{
+    color: #fff;
+}
+
+h2{
+    color:#02a388;
+    text-align: center;
+    transform: translate(+30px, -750px);
+
+}
+h3{
+    color:#fff
+}
+
+ul, li{
+    color: #fff;
+}

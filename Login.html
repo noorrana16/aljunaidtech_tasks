@@ -1,27 +1,60 @@
-<script>
-  fetch("header.html")
-    .then(response => response.text())
-    .then(data => document.getElementById("header").innerHTML = data);
-</script>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home Page</title>
+  <title>Login Page</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.2.0/css/all.min.css"
     integrity="sha512-6c4nX2tn5KbzeBJo9Ywpa0Gkt+mzCzJBrE1RB6fmpcsoN+b/w/euwIMuQKNyUoU/nToKN3a8SgNOtPrbW12fug=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /*body {
+            background-image: url('https://source.unsplash.com/1600x900/?nature,technology');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .btn-custom {
+            margin: 10px;
+            padding: 15px;
+            width: 220px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-5px);*/
+  </style>
+        
 </head>
 
 <body>
-
   <img src="pngtree-website-dark-colorful-background.jpg" width="1350" height="800">
-  <header>
     <header class="full_nav">
       <div class="container">
       <div id="header">
@@ -59,35 +92,38 @@
             </div>
         </nav>
       </div>
-    </header><br><br><br>
-    <div class="container mt-2"></div>
-    <div class="container-fluid  text-white text-center py-5">
-      <h1 style="color:white;">Welcome to Web Connect</h1>
-      <p>Your one-stop portal for seamless web interactions.</p>
-      <a href="register.html" class="btn btn-light btn-lg" style="background-color:#02a388">Get Started</a>
+    </header><br><br>
+    <div class="container mt-5">
+      <h2>Login</h2>
+      <form id="loginForm">
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter your email">
+          <small class="text-danger" id="emailError"></small>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <div class="input-field">
+            <input type="password" class="form-control" id="password" placeholder="Enter password">
+          </div>
+          <small class="text-danger" id="passwordError"></small>
+        </div>
+       <!--<p class="forgot-password"><a href="/forgot-password">Forgot your password?</a></p>-->
+        <button type="submit" style="background-color:#02a388; border:#02937a">Login</button>
+      </form>
     </div>
 
-    <div class="container text-center mt-5">
-      <h2>Why Choose Web Connect?</h2>
-      <div class="row mt-4">
-        <div class="col-md-4">
-          <i class="fas fa-laptop-code fa-3x text-primary"></i>
-          <h4 style="color:white">Modern UI</h4>
-          <p style="color:white">Built with Bootstrap and custom styles for a sleek experience.</p>
-        </div>
-        <div class="col-md-4">
-          <i class="fas fa-shield-alt fa-3x text-primary"></i>
-          <h4 style="color:white">Secure & Validated</h4>
-          <p style="color:white">All forms include advanced JavaScript validation for better security.</p>
-        </div>
-        <div class="col-md-4">
-          <i class="fas fa-mobile-alt fa-3x text-primary"></i>
-          <h4 style="color:white">Fully Responsive</h4>
-          <p style="color:white">Works on all devices, from mobile to desktop.</p>
-        </div>
-      </div>
-    </div>
-  </header>
+
+    <!-- SweetAlert Library -->
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/lightbox.js"></script>
+    <script src="js/login.js"></script>
 </body>
 
 </html>
