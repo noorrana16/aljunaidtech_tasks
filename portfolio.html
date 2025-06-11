@@ -12,18 +12,6 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-  <style>
-    body{
-      background-color:darkcyan
-        }
-    #submitBtn:hover {
-      background-color: #0056b3;
-      transition: 0.3s ease;
-    }
-    .container{
-      float:none;
-    }
-  </style>
 </head>
 
 <body>
@@ -50,80 +38,111 @@
         </div>
       </div>
     </nav>
-<!-- Contact Section -->
-<section id="contact" class="py-5 bg-light">
+<!-- Portfolio Section -->
+<section class="py-5" id="portfolio">
     <div class="container">
-      <div class="text-center mb-4">
-        <h2 class="fw-bold">Contact Us</h2>
-        <p class="text-muted">I'd love to hear from you!</p>
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">My Portfolio</h2>
+        <p class="text-muted">Some of my recent work</p>
+  
+        <!-- Filter Buttons -->
+        <div class="btn-group mt-3" role="group" aria-label="Filter Portfolio">
+          <button type="button" class="btn btn-outline-primary active" data-filter="all">All</button>
+          <button type="button" class="btn btn-outline-primary" data-filter="web">Web</button>
+          <button type="button" class="btn btn-outline-primary" data-filter="design">Design</button>
+          <button type="button" class="btn btn-outline-primary" data-filter="app">App</button>
+        </div>
       </div>
   
-      <div class="row">
-        <!-- Contact Form -->
-        <div class="container mt-5 col-md-5 bg-white shadow rounded border contact-box pt-5">
-          <div class="row justify-content-center">
-          <form id="contactForm">
-            <div class="mb-3">
-              <label for="name" class="form-label">Name *</label>
-              <input type="text" class="form-control" id="name" placeholder="Your Name">
+      <div class="row g-4" id="portfolio-items">
+        <!-- Portfolio Item 1 -->
+        <div class="col-md-4 portfolio-item web">
+          <div class="card shadow-sm h-100">
+            <img src="assets/img/web-project1.jpg" class="card-img-top" alt="Project 1">
+            <div class="card-body text-center">
+              <h5 class="card-title">Web Project 1</h5>
+              <a href="#" class="btn btn-sm btn-primary">View</a>
             </div>
-            <div class="mb-3">
-              <label for="email" class="form-label">Email *</label>
-              <input type="email" class="form-control" id="email" placeholder="Your Email">
+          </div>
+        </div>
+  
+        <!-- Portfolio Item 2 -->
+        <div class="col-md-4 portfolio-item design">
+          <div class="card shadow-sm h-100">
+            <img src="assets/img/project.jpg" class="card-img-top" alt="Project 2">
+            <div class="card-body text-center">
+              <h5 class="card-title">Design Project</h5>
+              <a href="#" class="btn btn-sm btn-primary">View</a>
             </div>
-            <div class="mb-3">
-              <label for="subject" class="form-label">Subject *</label>
-              <input type="text" class="form-control" id="subject" placeholder="Subject">
+          </div>
+        </div>
+  
+        <!-- Portfolio Item 3 -->
+        <div class="col-md-4 portfolio-item app">
+          <div class="card shadow-sm h-100">
+            <img src="assets/img/app-design-612x612.jpg" class="card-img-top" alt="Project 3">
+            <div class="card-body text-center">
+              <h5 class="card-title">App Project</h5>
+              <a href="#" class="btn btn-sm btn-primary">View</a>
             </div>
-            <div class="mb-3">
-              <label for="message" class="form-label">Message *</label>
-              <textarea class="form-control" id="message" rows="4" placeholder="Your Message"></textarea>
+          </div>
+        </div>
+  
+        <!-- Portfolio Item 4 -->
+        <div class="col-md-4 portfolio-item web">
+          <div class="card shadow-sm h-100">
+            <img src="c:\Users\CCC\Downloads\WhatsApp Image 2025-06-10 at 4.32.50 PM.jpeg" class="card-img-top" alt="Project 4" height="200" width="200">
+            <div class="card-body text-center">
+              <h5 class="card-title">Web Project 2</h5>
+              <a href="#" class="btn btn-sm btn-primary">View</a>
             </div>
-            <button type="submit" class="btn btn-primary px-4" id="submitBtn">Send Message</button>
-          </form>
+          </div>
+        </div>
+  
+        <!-- Portfolio Item 5 -->
+        <div class="col-md-4 portfolio-item design">
+          <div class="card shadow-sm h-100">
+            <img src="assets/img/creative-web-612x612.jpg" class="card-img-top" alt="Project 5">
+            <div class="card-body text-center">
+              <h5 class="card-title">Creative Design</h5>
+              <a href="#" class="btn btn-sm btn-primary">View</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Portfolio Item 6 -->
+        <div class="col-md-4 portfolio-item app">
+          <div class="card shadow-sm h-100">
+            <img src="assets/img/app-pro.jpg" class="card-img-top" alt="Project 6">
+            <div class="card-body text-center">
+              <h5 class="card-title">App UI/UX</h5>
+              <a href="#" class="btn btn-sm btn-primary">View</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
-  <section id="iframe" class="py-5 bg-light">
-    <div class="container">
-      <div class="text-center mb-4">
-  <!-- Google Map -->
-                 <h4 class="text-align:left">Find Us:</h4>
-
-      <div class="container mt-5 col-md-5 bg-white shadow rounded border contact-box pt-5">
-<div class="row justify-content-center">
-  <div class="col-md-10 mt-6 mt-md-0">
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13293.848998226496!2d72.82399255!3d33.68442065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df957f53f0d89b%3A0x1f0cfe5c6e648db0!2sIslamabad!5e0!3m2!1sen!2s!4v1618473615731!5m2!1sen!2s" 
-      width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
-    </iframe>
-  </div>
-  </div>
-    </div>
-</section>
-  <!-- SweetAlert CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   
-  <!-- JavaScript Validation -->
   <script>
-    document.getElementById("contactForm").addEventListener("submit", function (e) {
-      e.preventDefault();
+    const filterButtons = document.querySelectorAll("[data-filter]");
+    const portfolioItems = document.querySelectorAll(".portfolio-item");
   
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const subject = document.getElementById("subject").value.trim();
-      const message = document.getElementById("message").value.trim();
-      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const filter = button.getAttribute("data-filter");
   
-      if (!name || !email || !subject || !message) {
-        Swal.fire("Error", "Please fill all fields.", "error");
-      } else if (!email.match(emailPattern)) {
-        Swal.fire("Invalid Email", "Please enter a valid email address.", "warning");
-      } else {
-        Swal.fire("Thank You!", "Thanks for Contact Us. We’ll get back to you soon.", "success");
-        document.getElementById("contactForm").reset();
-      }
+        filterButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+  
+        portfolioItems.forEach(item => {
+          if (filter === "all" || item.classList.contains(filter)) {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      });
     });
   </script>
   <!-- Footer Include -->

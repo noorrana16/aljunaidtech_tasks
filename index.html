@@ -1,93 +1,424 @@
-<script>
-  fetch("header.html")
-    .then(response => response.text())
-    .then(data => document.getElementById("header").innerHTML = data);
-</script>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home Page</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.2.0/css/all.min.css"
-    integrity="sha512-6c4nX2tn5KbzeBJo9Ywpa0Gkt+mzCzJBrE1RB6fmpcsoN+b/w/euwIMuQKNyUoU/nToKN3a8SgNOtPrbW12fug=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="css/styles.css">
+    <!-- Meta Info & Title -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Blog</title>
+
+    <!-- Bootstrap CSS & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Add this custom CSS in a <style> tag or external stylesheet -->
+
+    <!-- Custom CSS -->
+    <style>
+        body.dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+
+        .dark-mode .card {
+            background-color: #1e1e1e;
+            color: white;
+        }
+
+        .back-to-top {
+            display: none;
+        }
+
+        .hero-section {
+            height: 100vh;
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            background: url('assets/img/cover-page.jpeg') no-repeat center center/cover;
+            /* Gradient Background */
+            color: white;
+            /*min-height: 100vh;*/
+            /*background: linear-gradient(to right, rgba(20, 20, 20, 0.6), rgba(0, 0, 0, 0.6)), url('images/hero-bg.jpg') no-repeat center center/cover;*/
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-form-maxwidth {
+            max-width: 600px;
+        }
+
+        .toggle-mode-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+        }
+    </style>
 </head>
-
 <body>
-
-  <img src="pngtree-website-dark-colorful-background.jpg" width="1350" height="800">
-  <header>
-    <header class="full_nav">
-      <div class="container">
-      <div id="header">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-light">
-            <a class="navbar-brand text-dark" href="index.html">
-              <img src="./images/data-logo.png" alt="logo" width="40" height="40">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-              <!--<span class="navbar-toggler-icon"></span>-->
-              <i class="fad fa-stream navbar-toggler-icon text-dark"></i>
+    <!-- Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="assets/img/Think-Nest.jpeg" alt="Logo" width="40"
+                    height="40" class="d-inline-block align-text-top">
+                ThinkNest</a>
+            <!-- Toggler for mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav mx-auto ">
-                <li class="nav-item">
-                  <a class="nav-link active text-dark" aria-current="page" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-dark" href="about.html">About Us</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-dark" href="contact.html">Contact Us</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-dark" href="register.html">Registration</a>
-                </li>
-                <li class="nav-item"> <a class="nav-link text-dark" href="Login.html">Login</a>
-                </li>
-              </ul>
-              <div class="header_right">
-                <div class="text-lg-end"></div>
-                <i class="fas fa-stream navbar-toggler-icon text-dark"></i>
-
-                <span></span>
-              </div>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faqs.html">FAQs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
             </div>
-        </nav>
-      </div>
-    </header><br><br><br>
-    <div class="container mt-2"></div>
-    <div class="container-fluid  text-white text-center py-5">
-      <h1 style="color:white;">Welcome to Web Connect</h1>
-      <p>Your one-stop portal for seamless web interactions.</p>
-      <a href="register.html" class="btn btn-light btn-lg" style="background-color:#02a388">Get Started</a>
-    </div>
+        </div>
+    </nav>
 
-    <div class="container text-center mt-5">
-      <h2>Why Choose Web Connect?</h2>
-      <div class="row mt-4">
-        <div class="col-md-4">
-          <i class="fas fa-laptop-code fa-3x text-primary"></i>
-          <h4 style="color:white">Modern UI</h4>
-          <p style="color:white">Built with Bootstrap and custom styles for a sleek experience.</p>
+    <!-- Header Include -->
+    <!--<div id="header"></div>-->
+
+    <!-- Hero Section -->
+    <!--<section id="home" class="vh-100 d-flex align-items-center justify-content-center text-white"
+        style="background: url('hero.jpg') center/cover no-repeat;">
+        <div class="text-center bg-dark bg-opacity-50 p-4 rounded">
+            <h1 class="display-4 fw-bold">Welcome to My Portfolio</h1>
+            <p class="lead">Creative solutions for your digital needs.</p>
+            <a href="#services" class="btn btn-primary me-2">Get Started</a>
+            <a href="#portfolio" class="btn btn-outline-light">View Work</a>
+        </div>-->
+    <!-- Hero Section Start -->
+    <section class="hero-section d-flex align-items-center justify-content-center text-center text-white">
+        <div class="container">
+            <div class="glass p-5 rounded shadow-lg">
+                <h1 class="display-4 fw-bold">Hi, I'm a Creative Web Developer</h1>
+                <p class="lead mb-4">Crafting beautiful and functional websites with modern technologies</p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <a href="#portfolio" class="btn btn-primary btn-lg px-4">View Portfolio</a>
+                    <a href="#contact" class="btn btn-outline-light btn-lg px-4">Contact Us</a>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4">
-          <i class="fas fa-shield-alt fa-3x text-primary"></i>
-          <h4 style="color:white">Secure & Validated</h4>
-          <p style="color:white">All forms include advanced JavaScript validation for better security.</p>
+    </section>
+    <!-- Hero Section End -->
+
+
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="container py-5">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="assets/img/me.jpeg" alt="About Me" class="img-fluid rounded" height="300" width="300">
+            </div>
+            <div class="col-md-6">
+                <h2 class="fw-bold">About Me</h2>
+                <p>Hi! I'm a passionate coder with a creative soul. I love turning complex ideas into clean, functional
+                    code that brings websites and applications to life. Whether it’s solving logical problems or
+                    designing user-friendly interfaces, coding is not just my profession — it’s my passion.
+
+                    Outside of programming, you’ll often find me with a paintbrush in hand or lost in the pages of a
+                    good book. Creativity fuels innovation, and my love for painting and reading helps me bring fresh
+                    perspectives to my coding projects.
+
+                    This website is a reflection of my journey, combining logic with creativity. Thanks for stopping by
+                    — feel free to explore and connect!.</p>
+            </div>
         </div>
-        <div class="col-md-4">
-          <i class="fas fa-mobile-alt fa-3x text-primary"></i>
-          <h4 style="color:white">Fully Responsive</h4>
-          <p style="color:white">Works on all devices, from mobile to desktop.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Services</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center">
+                        <i class="bi bi-brush fs-1"></i>
+                        <div class="card-body">
+                            <h5 class="card-title">Web Design</h5>
+                            <p class="card-text">Creative and responsive web designs tailored to your needs.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center">
+                        <i class="bi bi-laptop fs-1"></i>
+                        <div class="card-body">
+                            <h5 class="card-title">Development</h5>
+                            <p class="card-text">Building functional and scalable web applications.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center">
+                        <i class="bi bi-graph-up-arrow fs-1"></i>
+                        <div class="card-body">
+                            <h5 class="card-title">SEO Services</h5>
+                            <p class="card-text">Optimize your website for better performance and search engine ranking.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </header>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="container py-5">
+        <h2 class="text-center mb-4">Portfolio</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="assets/img/istockphoto-1395354448-612x612.jpg" class="card-img-top" alt="Project 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Project 1</h5>
+                        <a href="#" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="assets/img/project.jpg" class="card-img-top" alt="Project 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Project 2</h5>
+                        <a href="#" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="assets/img/pro2.jpg" class="card-img-top" alt="Project 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Project 3</h5>
+                        <a href="#" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="container py-5">
+        <h2 class="text-center mb-4">Blog</h2>
+        <div class="row">
+            <!-- Repeat this card for each blog post -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="assets/img/pc.jpeg" class="card-img-top" alt="Blog 1" height="470" width="470">
+                    <div class="card-body">
+                        <h5 class="card-title">Blog Post Title</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+                            imperdiet...</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Repeat this card for each blog post -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="c:\Users\CCC\Downloads\WhatsApp Image 2025-06-10 at 8.32.33 PM.jpeg" class="card-img-top" alt="Blog 2" height="470" width="470">
+                    <div class="card-body">
+                        <h5 class="card-title">Blog Post Title</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+                            imperdiet...</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Repeat this card for each blog post -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="assets/img/developer.jpeg" class="card-img-top" alt="Blog 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Blog Post Title</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+                            imperdiet...</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more blog cards here -->
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="container py-5">
+        <h2 class="text-center mb-4">FAQs</h2>
+        <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        What is this website about?
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        This is a personal portfolio and blog website showcasing my work and projects.
+                    </div>
+                </div>
+            </div>
+            <!-- Repeat for more FAQs -->
+        </div>
+    </section>
+
+    <form id="contactForm" class="mx-auto contact-form-maxwidth">
+        <section id="contact" class="container py-5">
+            <h2 class="text-center mb-4">Contact Us</h2>
+
+            <img src="assets/img/us.jpeg" class="card-img-top" alt="Blog 1" height="400" width="400">
+
+            <form id="contactForm" class="mx-auto" style="max-width: 600px;">
+                <input type="text" id="name" placeholder="Your Name" class="form-control mb-2" required>
+                <input type="email" id="email" placeholder="Your Email" class="form-control mb-2" required>
+                <input type="text" id="subject" placeholder="Subject" class="form-control mb-2" required>
+                <textarea id="message" placeholder="Message" class="form-control mb-2" required></textarea>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </section>
+        <!-- SweetAlert CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <!-- JavaScript Validation -->
+        <script>
+            document.getElementById("contactForm").addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                const name = document.getElementById("name").value.trim();
+                const email = document.getElementById("email").value.trim();
+                const subject = document.getElementById("subject").value.trim();
+                const message = document.getElementById("message").value.trim();
+                const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+                if (!name || !email || !subject || !message) {
+                    Swal.fire("Error", "Please fill all fields.", "error");
+                } else if (!email.match(emailPattern)) {
+                    Swal.fire("Invalid Email", "Please enter a valid email address.", "warning");
+                } else {
+                    Swal.fire("Thank You!", "Thanks for contact us. We’ll get back to you soon.", "success");
+                    document.getElementById("contactForm").reset();
+                }
+            });
+        </script>
+        <!-- Back to Top Button -->
+        <button id="backToTopBtn" class="btn btn-dark" id="toggleModeBtn" class="btn btn-light toggle-mode-btn">
+            <i class="bi bi-moon"></i> Toggle Mode</button>
+        </button>
+
+        <!-- Dark/Light Mode Toggle -->
+        <button id="toggleModeBtn" class="btn btn-light toggle-mode-btn">
+            <i class="bi bi-moon"></i> Toggle Mode</button>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- JavaScript Logic -->
+        <script>
+            // Load header and footer
+            fetch('header.html').then(res => res.text()).then(data => document.getElementById('header').innerHTML = data);
+            fetch('footer.html').then(res => res.text()).then(data => document.getElementById('footer').innerHTML = data);
+
+            // Smooth scroll (if anchor used)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            // Back to top button visibility
+            const backToTopBtn = document.getElementById("backToTopBtn");
+            window.addEventListener("scroll", () => {
+                backToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
+            });
+
+            backToTopBtn.addEventListener("click", () => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+
+            // Dark/Light mode toggle
+            document.getElementById("toggleModeBtn").addEventListener("click", () => {
+                document.body.classList.toggle("dark-mode");
+            });
+        </script>
+
+        <!-- Footer Include -->
+        <div id="footer">
+            <!-- footer.html -->
+            <footer class="bg-dark text-white pt-5 pb-3">
+                <div class="container">
+                    <div class="row">
+
+                        <!-- Contact Info -->
+                        <div class="col-md-4 mb-4">
+                            <h5 class="text-uppercase fw-bold">Contact Info</h5>
+                            <p><i class="bi bi-geo-alt-fill me-2"></i>Islamabad, Pakistan</p>
+                            <p><i class="bi bi-envelope-fill me-2"></i>contact@example.com</p>
+                            <p><i class="bi bi-telephone-fill me-2"></i>+92 300 1234567</p>
+                        </div>
+
+                        <!-- Quick Links -->
+                        <div class="col-md-4 mb-4">
+                            <h5 class="text-uppercase fw-bold">Quick Links</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="#home.html" class="text-white text-decoration-none">Home</a></li>
+                                <li><a href="#about.html" class="text-white text-decoration-none">About</a></li>
+                                <li><a href="#services.html" class="text-white text-decoration-none">Services</a></li>
+                                <li><a href="#portfolio.html" class="text-white text-decoration-none">Portfolio</a></li>
+                                <li><a href="#blog.html" class="text-white text-decoration-none">Blog</a></li>
+                                <li><a href="#contact.html" class="text-white text-decoration-none">Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Social Media -->
+                        <div class="col-md-4 mb-4">
+                            <h5 class="text-uppercase fw-bold">Follow Us</h5>
+                            <a href="#" class="text-white fs-4 me-3" title="Follow us on Facebook"><i
+                                    class="bi bi-facebook"></i></a>
+                            <a href="#" class="text-white fs-4 me-3" title="Follow us on Twitter"><i
+                                    class="bi bi-twitter"></i></a>
+                            <a href="#" class="text-white fs-4 me-3" title="Follow us on Instagram"><i
+                                    class="bi bi-instagram"></i></a>
+                            <a href="#" class="text-white fs-4 me-3" title="Follow us on LinkedIn"><i
+                                    class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Copyright -->
+                    <div class="text-center pt-3 border-top border-secondary mt-3">
+                        <p class="mb-0">&copy; 2025 My Blog. All rights reserved.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <script>
+            fetch("navbar.html")
+                .then(res => res.text())
+                .then(data => document.getElementById("navbar").innerHTML = data);
+
+            fetch("footer.html")
+                .then(res => res.text())
+                .then(data => document.getElementById("footer").innerHTML = data);
+        </script>
+        <!-- Bootstrap JS and Navbar Loader Script -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

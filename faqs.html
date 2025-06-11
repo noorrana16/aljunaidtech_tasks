@@ -12,18 +12,6 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-  <style>
-    body{
-      background-color:darkcyan
-        }
-    #submitBtn:hover {
-      background-color: #0056b3;
-      transition: 0.3s ease;
-    }
-    .container{
-      float:none;
-    }
-  </style>
 </head>
 
 <body>
@@ -50,80 +38,112 @@
         </div>
       </div>
     </nav>
-<!-- Contact Section -->
-<section id="contact" class="py-5 bg-light">
+<!-- FAQ Section -->
+<section class="py-5 bg-light" id="faqs">
     <div class="container">
-      <div class="text-center mb-4">
-        <h2 class="fw-bold">Contact Us</h2>
-        <p class="text-muted">I'd love to hear from you!</p>
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Frequently Asked Questions</h2>
+        <p class="text-muted">Get answers to your common questions</p>
       </div>
   
-      <div class="row">
-        <!-- Contact Form -->
-        <div class="container mt-5 col-md-5 bg-white shadow rounded border contact-box pt-5">
-          <div class="row justify-content-center">
-          <form id="contactForm">
-            <div class="mb-3">
-              <label for="name" class="form-label">Name *</label>
-              <input type="text" class="form-control" id="name" placeholder="Your Name">
+      <div class="accordion" id="faqAccordion">
+  
+        <!-- Question 1 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faq1">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+              How do I read the full blog post?
+            </button>
+          </h2>
+          <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Simply click on the “View” or “Details” button on any blog card to open the full post with comments.
             </div>
-            <div class="mb-3">
-              <label for="email" class="form-label">Email *</label>
-              <input type="email" class="form-control" id="email" placeholder="Your Email">
-            </div>
-            <div class="mb-3">
-              <label for="subject" class="form-label">Subject *</label>
-              <input type="text" class="form-control" id="subject" placeholder="Subject">
-            </div>
-            <div class="mb-3">
-              <label for="message" class="form-label">Message *</label>
-              <textarea class="form-control" id="message" rows="4" placeholder="Your Message"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary px-4" id="submitBtn">Send Message</button>
-          </form>
+          </div>
         </div>
+  
+        <!-- Question 2 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faq2">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+              Can I see a live demo of the portfolio projects?
+            </button>
+          </h2>
+          <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Yes, each portfolio item has a “View” button that takes you to a live demo or a detailed case study page.
+            </div>
+          </div>
+        </div>
+  
+        <!-- Question 3 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faq3">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
+              How can I contact the developer?
+            </button>
+          </h2>
+          <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              You can reach out through the contact form on the Contact Us page or directly via email or social media links.
+            </div>
+          </div>
+        </div>
+  
+        <!-- Question 4 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faq4">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">
+              Is this website responsive on mobile devices?
+            </button>
+          </h2>
+          <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Absolutely! The site is fully responsive and optimized for all screen sizes using Bootstrap.
+            </div>
+          </div>
+        </div>
+  
+        <!-- Question 5 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faq5">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5">
+              Can I submit my own blog post?
+            </button>
+          </h2>
+          <div id="collapse5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Currently, posting is restricted to registered authors. If you're interested, please contact us to join.
+            </div>
+          </div>
+        </div>
+  
+        <!-- Question 6 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faq6">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6">
+              How often is new content added to the blog?
+            </button>
+          </h2>
+          <div id="collapse6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              New blog posts are added weekly. Stay tuned and subscribe for updates!
+            </div>
+          </div>
+        </div>
+  
       </div>
     </div>
   </section>
-  <section id="iframe" class="py-5 bg-light">
-    <div class="container">
-      <div class="text-center mb-4">
-  <!-- Google Map -->
-                 <h4 class="text-align:left">Find Us:</h4>
-
-      <div class="container mt-5 col-md-5 bg-white shadow rounded border contact-box pt-5">
-<div class="row justify-content-center">
-  <div class="col-md-10 mt-6 mt-md-0">
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13293.848998226496!2d72.82399255!3d33.68442065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df957f53f0d89b%3A0x1f0cfe5c6e648db0!2sIslamabad!5e0!3m2!1sen!2s!4v1618473615731!5m2!1sen!2s" 
-      width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
-    </iframe>
-  </div>
-  </div>
-    </div>
-</section>
-  <!-- SweetAlert CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  
-  <!-- JavaScript Validation -->
   <script>
-    document.getElementById("contactForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-  
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const subject = document.getElementById("subject").value.trim();
-      const message = document.getElementById("message").value.trim();
-      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-  
-      if (!name || !email || !subject || !message) {
-        Swal.fire("Error", "Please fill all fields.", "error");
-      } else if (!email.match(emailPattern)) {
-        Swal.fire("Invalid Email", "Please enter a valid email address.", "warning");
-      } else {
-        Swal.fire("Thank You!", "Thanks for Contact Us. We’ll get back to you soon.", "success");
-        document.getElementById("contactForm").reset();
-      }
+    const buttons = document.querySelectorAll(".accordion-button");
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        buttons.forEach(b => b.classList.remove("bg-primary", "text-white"));
+        if (!btn.classList.contains("collapsed")) {
+          btn.classList.add("bg-primary", "text-white");
+        }
+      });
     });
   </script>
   <!-- Footer Include -->
