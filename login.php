@@ -1,87 +1,113 @@
-<?php
-session_start();
-include 'db.php';
+  <?php 
+  session_start();
+  include 'inc/header.php'; ?>
 
-$email = "";
-$password = "";
-$error = "";
+  <style>
+    body {
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-  if (!empty($_POST["email"]) && !empty($_POST["password"])) {
-    $email = $_POST["email"];
-    $password = $_POST["password"];
+      background: url('uploads/pexels-chevanon-1335971.jpg') no-repeat center center fixed;
+      background-size: cover;
 
-    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows === 1) {
-      $user = $result->fetch_assoc();
-
-      if (password_verify($password, $user["password"])) {
-        // Set session variables
-        $_SESSION["user_id"] = $user["id"];
-        $_SESSION["full_name"] = $user["full_name"];
-        $_SESSION["user_role"] = $user["user_role"];
-        $_SESSION["email"] = $user["email"];
-        //Role Check
-        if ($user['role'] == 'admin') {
-          header("Location: admin_dashboard.php");
-        } else {
-          header("Location: user_dashboard.php");
-        }
-        // Redirect to profile page
-        header("Location: profile.php");
-        exit;
-      } else {
-        $error = "Invalid password.";
-      }
-    } else {
-      $error = "User not found.";
     }
-  } else {
-    $error = "Both fields are required.";
-  }
-}
-?>
-<?php include 'header.php'; ?>
-<?php include 'navbar.php'; ?>
 
-<!-- HTML PART -->
-<!DOCTYPE html>
-<html>
+    .login-wrapper {
+      min-height: calc(100vh - 70px);
+      /* Adjust if header height is different */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url('assets/images/fish-bg.jpg') no-repeat center center / cover;
+    }
 
-<head>
+    .login-card {
+      background: rgba(255, 255, 255, 0.08);
+      /* Transparent dark background */
+      padding: 30px;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 400px;
+      backdrop-filter: blur(12px);
+      /* 3D glass effect */
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      transition: transform 0.4s ease;
 
-  <title>Login</title>
-  <link rel="stylesheet" href="style.css"> <!-- Bootstrap ya apna custom CSS -->
-</head>
+      color: white;
+    }
 
-<body>
-  <div class="container mt-5">
-    <h2 class="text-success">Login!</h2>
+    .login-card input,
+    .login-card select {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: none;
+    }
 
-    <?php if (!empty($error)) {
-      echo "<p style='color:red;'>$error</p>";
-    } ?>
+    .login-card input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
 
-    <form action="login.php" method="POST">
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email" class="form-control" required>
+    .login-card h3 {
+      margin-bottom: 25px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .card-login:hover {
+      transform: perspective(800px) rotateX(5deg) rotateY(5deg);
+    }
+
+    .form-control {
+      background-color: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: #fff;
+    }
+
+    .form-control::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .btn-register:hover {
+      background-color: #000000;
+    }
+
+    .form-text {
+      color: #ccc;
+      text-align: center;
+    }
+
+    a {
+      color: #81ecec;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+  
+    <div class="login-wrapper">
+      <div class="login-card">
+        <h4 class="text-center sec-color">Login<i class="bi bi-person-fill"></i></h4>
+        <form action="login-func.php" method="POST">
+          <div class="mb-3">
+            <input type="email" name="email" class="form-control" id="floatingEmail" placeholder="name@example.com" required>
+          </div>
+          <div class="mb-3">
+            <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+          </div>
+          <div class="mb-3">
+            <select name="role" class="form-control" required>
+              <option value="reader">Reader</option>
+              <option value="author">Author</option>
+              <option value="admin">Admin</option> <!-- Optional -->
+            </select>
+          </div>
+          <button type="submit" name="login" class="btn  btn-login btn-dark w-100">Login</button>
+        </form>
+        <div class="mt-3 text-center">
+          <small>Don't have an account? <a href="Register.php" class="text-light">Register here</a></small>
+        </div>
       </div>
-
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password" class="form-control" required>
-      </div>
-
-      <button type="submit" class="btn btn-success mt-2">Login</button>
-    </form>
-
-    <p class="mt-3">Don't have an account? <a href="register.php">Register here</a></p>
-  </div>
-</body>
-
-</html>
+    </div>
+    <?php include 'inc/footer.php';
+    ?>
+  

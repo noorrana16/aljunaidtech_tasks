@@ -1,40 +1,52 @@
 <?php
 session_start();
-include 'db.php';
-if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
-    header("Location: index.php");
+require '../config/db.php';
+
+if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] !== 'admin') {
+    header("Location: ../login.php");
     exit;
 }
 
-$stmt = $conn->prepare("SELECT posts.*, users.name AS author FROM posts JOIN users ON posts.user_id = users.id WHERE posts.status = 'pending' ORDER BY created_at DESC");
+$stmt = $conn->prepare("
+    SELECT posts.*, users.full_name AS author 
+    FROM posts 
+    JOIN users ON posts.user_id = users.id 
+    WHERE posts.status = 'pending'
+    ORDER BY posts.created_at DESC
+");
 $stmt->execute();
 $result = $stmt->get_result();
 ?>
-<?php
-include 'header.php';
-include 'navbar.php';
-?>
-<div class="container mt-5">
-    <h2>Pending Blog Posts</h2>
 
-    <?php while ($row = $result->fetch_assoc()): ?>
-        <div class="card mb-3">
-            <div class="card-body">
-                <h5 class="card-title"><?= htmlspecialchars($row['title']); ?></h5>
-                <p class="card-text"><?= substr(strip_tags($row['content']), 0, 100) . '...'; ?></p>
-                <p class="card-text"><small>By <?= $row['author']; ?> | <?= $row['created_at']; ?></small></p>
-                <form method="POST" action="update_post_status.php" class="d-inline">
-                    <input type="hidden" name="post_id" value="<?= $row['id']; ?>">
-                    <button type="submit" name="action" value="approve" class="btn btn-success btn-sm">Approve</button>
-                    <button type="submit" name="action" value="reject" class="btn btn-danger btn-sm">Reject</button>
+<h2 class="text-light">Pending Blog Posts for Review</h2>
+
+<?php if ($result->num_rows === 0): ?>
+    <p class="text-light">No pending posts.</p>
+<?php else: ?>
+    <table border="1" cellpadding="10" cellspacing="0" class="text-light">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Posted On</th>
+            <th>Action</th>
+        </tr>
+        <?php while ($row = $result->fetch_assoc()): ?>
+        <tr>
+            <td><?= htmlspecialchars($row['title']) ?></td>
+            <td><?= htmlspecialchars($row['author']) ?></td>
+            <td><?= $row['created_at'] ?></td>
+            <td>
+                <form action="update_post_status.php" method="POST" style="display:inline-block;">
+                    <input type="hidden" name="post_id" value="<?= $row['id'] ?>">
+                    <button type="submit" name="action" value="approve">Approve</button>
+                    <button type="submit" name="action" value="reject">Reject</button>
                 </form>
-            </div>
-        </div>
-    <?php endwhile; ?>
-
-    <?php if ($result->num_rows === 0): ?>
-        <div class="alert alert-info">No pending posts to review.</div>
-    <?php endif; ?>
-</div>
-
-<?php require_once 'footer.php'; ?>
+                <form action="delete_post.php" method="POST" style="display:inline-block;" onsubmit="return confirm('Delete this post permanently?');">
+                    <input type="hidden" name="post_id" value="<?= $row['id'] ?>">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        <?php endwhile; ?>
+    </table>
+<?php endif; ?>
